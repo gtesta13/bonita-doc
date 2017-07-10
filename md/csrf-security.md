@@ -73,3 +73,17 @@ To activate the addition of the secure flag, edit the configuration file and cha
 [User authentication overview](user-authentication-overview.md)
 [Read more about CSRF attacks](http://www.acunetix.com/websitesecurity/csrf-attacks)
 
+
+## How to use UI form or page from 7.3.3 or lower to 7.4.0 or greater when CSRF security is enabled
+To use a UI page or form who that was created in lower version that 7.4, you need to re-import this old page in actual UI designer. If you don't update your page, any API call in your outdated version will be failed because `X-Bonita-API-Token` was will be absent in response header. 
+Follow this few steps to update your page or form:
+
+In UI designer:
+1) **Import** the page who come from 7.3.X or lower version.
+1) **Export** page who you previously imported.
+
+In portal as Administrator:
+1) Go on Resources entry.
+1) Delete resource who references the old page.
+1) Add the page what you have export on point 2) in previously section
+1) Add this page in your Living Application.
